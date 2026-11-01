@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twittermcp"
+version = "0.1.0"
+description = "Local-first analysis of X.com posts (text, images, video) as an MCP server, with local Gemma via Ollama"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Taras Bulubas", email = "taras.bulubas@gmail.com" }]
+license = "LicenseRef-All-Rights-Reserved"
+license-files = ["LICENSE"]
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "fastmcp>=4.1",
+    "requests>=2.32",
+    "yt-dlp>=2026.10.26",
+    "faster-whisper>=1.2",
+    "av>=14",
+    "pillow>=11",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# GPU transcription on Windows: the CUDA 12 / cuDNN 9 runtime DLLs for faster-whisper
+cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12>=9,<10"]
+
+[project.scripts]
+twittermcp = "twittermcp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

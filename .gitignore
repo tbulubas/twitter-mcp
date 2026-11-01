@@ -1,0 +1,38 @@
+# === SECRETS — must never go into git ===
+# X.com session cookies give full access to the account; browser extensions
+# export them under names like x.com_cookies.txt or cookies.json
+*cookies*
+*.cookies
+.env
+*.local
+
+# === downloaded content and the local database ===
+data/
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+*.mp4
+*.m4a
+*.webm
+*.mkv
+
+# === Python ===
+/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+venv/
+env/
+
+# === IDE and OS ===
+/.idea/
+/.junie/
+.vscode/
+*.iml
+Thumbs.db
+desktop.ini
+.DS_Store
